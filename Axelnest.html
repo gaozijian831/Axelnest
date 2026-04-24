@@ -70,6 +70,40 @@ window.__TWEAKS__ = TWEAKS;
   html, body { margin: 0; padding: 0; background: var(--bg-0); color: var(--fg-0); font-family: var(--font-sans); }
   html { scroll-behavior: smooth; }
   body { overflow-x: hidden; }
+  body.has-file-hint { padding-top: var(--file-hint-h, 0px); }
+
+  /* file:// — browsers block loading local .jsx; React never mounts */
+  .file-protocol-hint {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    padding: 12px 48px 12px 16px;
+    background: oklch(0.22 0.09 25 / 0.97);
+    border-bottom: 1px solid oklch(0.55 0.16 55 / 0.45);
+    color: oklch(0.96 0.01 95);
+    font-size: 13px;
+    line-height: 1.55;
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.35);
+  }
+  .file-protocol-hint.is-visible { display: block; }
+  .file-protocol-hint strong { color: var(--gold); font-weight: 600; }
+  .file-protocol-hint-en { margin: 6px 0 0; font-size: 12px; opacity: 0.88; }
+  .file-protocol-hint-dismiss {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid oklch(1 0 0 / 0.2);
+    background: oklch(1 0 0 / 0.08);
+    color: inherit;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .file-protocol-hint-dismiss:hover { background: oklch(1 0 0 / 0.14); }
   a { color: inherit; text-decoration: none; }
   button { font: inherit; color: inherit; }
 
@@ -1178,6 +1212,34 @@ window.__TWEAKS__ = TWEAKS;
 </head>
 <body data-screen-label="Axelnest Home">
 
+<div id="file-protocol-hint" class="file-protocol-hint" role="alert" aria-live="polite">
+  <button type="button" class="file-protocol-hint-dismiss" id="file-protocol-hint-dismiss" aria-label="关闭提示">关闭</button>
+  <strong>当前是本地文件（file://）打开方式。</strong>浏览器会拦截同文件夹里的 <code>components.jsx</code> / <code>app.jsx</code>，页面主体无法加载，所以您可能只看到背景与人物图。
+  <p class="file-protocol-hint-en">Open this folder with a local server (e.g. VS Code <strong>Live Server</strong>, or run <code>py -m http.server</code> in this folder) and visit <code>http://localhost:…/Axelnest.html</code> — then the full site will load.</p>
+</div>
+<script>
+(function () {
+  if (location.protocol !== "file:") return;
+  var bar = document.getElementById("file-protocol-hint");
+  var btn = document.getElementById("file-protocol-hint-dismiss");
+  if (!bar) return;
+  bar.classList.add("is-visible");
+  function setPadding() {
+    var h = bar.offsetHeight || 0;
+    document.documentElement.style.setProperty("--file-hint-h", h + "px");
+    document.body.classList.add("has-file-hint");
+  }
+  setPadding();
+  window.addEventListener("resize", setPadding);
+  if (btn) btn.addEventListener("click", function () {
+    bar.remove();
+    document.body.classList.remove("has-file-hint");
+    document.documentElement.style.removeProperty("--file-hint-h");
+    window.removeEventListener("resize", setPadding);
+  });
+})();
+</script>
+
 <div class="sky"></div>
 <canvas id="particles"></canvas>
 <div class="hero-figure" id="heroFigure">
@@ -1194,7 +1256,7 @@ window.__TWEAKS__ = TWEAKS;
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script src="data.js"></script>
-<script src="us-map-data.js"></script>
+<script src="us-map-data.js?v=20260424"></script>
 <script type="text/babel" src="components.jsx"></script>
 <script type="text/babel" src="app.jsx"></script>
 
