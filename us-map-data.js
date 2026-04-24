@@ -90,9 +90,9 @@
    back to a Google search for "<rink name> <city> tickets".
    ============================================================ */
 window.RINK_LINKS = {
-  "Sharks Ice at San Jose":            "https://www.sharksice.com/",
-  "Solar4America Ice at Fremont":      "https://www.solar4americaice.com/fremont/",
-  "Oakland Ice Center":                "https://www.oaklandice.com/",
+  "Sharks Ice at San Jose":            "https://www.sharksiceatsanjose.com/figure-skating/freestyle-skating",
+  "Solar4America Ice at Fremont":      "https://www.sharksiceatfremont.com/figure-skating/freestyle-skating",
+  "Oakland Ice Center":                "https://www.oaklandice.com/figure-skating/freestyle-skating",
   "Yerba Buena Ice Skating Center":    "https://skatebowl.com/",
   "Snoopy's Home Ice":                 "https://snoopyshomeice.com/",
   "Redwood Empire Ice Arena":          "https://snoopyshomeice.com/",
@@ -129,11 +129,13 @@ window.RINK_LINKS = {
   "City National Arena (VGK)":         "https://www.citynationalarena.com/",
   "Lifeguard Arena":                   "https://www.lifeguardarenahenderson.com/",
   "Reno Ice":                          "https://www.renoice.com/",
-  "Utah Olympic Oval":                 "https://utaholympiclegacy.org/location/utah-olympic-oval/",
-  "Cottonwood Heights Recreation Ctr": "https://www.cottonwoodheights.utah.gov/recreation-center",
-  "Acord Ice Arena":                   "https://www.acordicearena.com/",
-  "Park City Ice Arena":               "https://www.parkcityicearena.com/",
-  "Peaks Ice Arena":                   "https://www.peaksicearena.com/",
+  "Utah Olympic Oval":                 "https://bondsports.co/activity/programs/CO_ED-adult-ICE_SKATING/2618",
+  "Salt Lake City Sports Complex":    "https://app.amilia.com/store/en/slc-sports-complex/shop/programs/127745?subCategoryIds=6612454",
+  "Salt Lake County Ice Center (Murray)": "https://app.amilia.com/store/en/county-ice-center-slc/shop/programs/127429",
+  "Cottonwood Heights Recreation Ctr": "https://chprsa.activityreg.com/selectactivity_t2.wcs",
+  "Acord Ice Arena":                   "https://app.amilia.com/store/en/acord-ice-center-slc/shop/programs",
+  "Park City Ice Arena":               "https://apps.daysmartrecreation.com/dash/x/#/online/parkcity/programs?",
+  "Peaks Ice Arena":                   "https://apps.daysmartrecreation.com/dash/x/#/online/provo/event-registration?date=2026-04-23&facility_ids=1&sport_ids=31",
   "South Suburban Ice Arena":          "https://www.ssprd.org/southsuburbanicearena",
   "Edge Ice Arena":                    "https://edgeicearena.com/",
   "Apex Center Ice Arena":             "https://www.apexprd.org/apex-center",
@@ -146,6 +148,7 @@ window.RINK_LINKS = {
   "StarCenter Farmers Branch":         "https://www.dallasstars.com/community/starcenters.html",
   "StarCenter Mansfield":              "https://www.dallasstars.com/community/starcenters.html",
   "Sugar Land Ice & Sports Center":    "https://www.sugarlandice.com/",
+  "Stumptown Ice Den":                 "https://www.glacierskateacademy.org/freestyle-calendar",
   "Aerodrome Ice Skating Complex":     "https://www.aerodromes.com/",
   "Chaparral Ice":                     "https://chaparralice.com/",
   "Parade Ice Garden":                 "https://www.minneapolisparks.org/parks-destinations/parks-lakes/parade-ice-garden/",
@@ -317,6 +320,7 @@ window.RINK_DATABASE = [
 
   // ========== UTAH ==========
   { name:"Utah Olympic Oval",                 city:"Kearns",          state:"UT", lat:40.66, lng:-112.01 },
+  { name:"Salt Lake City Sports Complex",    city:"Salt Lake City", state:"UT", lat:40.752, lng:-111.851 },
   { name:"Cottonwood Heights Recreation Ctr", city:"Cottonwood Heights",state:"UT",lat:40.62, lng:-111.81 },
   { name:"Acord Ice Arena",                   city:"West Valley City",state:"UT", lat:40.69, lng:-111.98 },
   { name:"Park City Ice Arena",               city:"Park City",       state:"UT", lat:40.69, lng:-111.51 },
@@ -598,6 +602,7 @@ window.RINK_DATABASE = [
   { name:"Helena Ice Arena",                  city:"Helena",          state:"MT", lat:46.59, lng:-112.04 },
   { name:"Bozeman Haynes Pavilion",           city:"Bozeman",         state:"MT", lat:45.68, lng:-111.04 },
   { name:"Missoula Glacier Ice Rink",         city:"Missoula",        state:"MT", lat:46.87, lng:-114.01 },
+  { name:"Stumptown Ice Den",                 city:"Whitefish",       state:"MT", lat:48.41, lng:-114.34 },
   { name:"Billings Centennial Arena",         city:"Billings",        state:"MT", lat:45.79, lng:-108.55 },
 
   // ========== IDAHO ==========
